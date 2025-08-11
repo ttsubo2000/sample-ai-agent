@@ -800,7 +800,6 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
-    { name = "google-generativeai" },
     { name = "imgcat" },
     { name = "langchain" },
     { name = "langchain-google-genai" },
@@ -815,7 +814,6 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.13.4" },
-    { name = "google-generativeai", specifier = ">=0.8.5" },
     { name = "imgcat", specifier = ">=0.6.0" },
     { name = "langchain", specifier = ">=0.3.27" },
     { name = "langchain-google-genai", specifier = ">=2.0.10" },

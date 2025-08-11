@@ -2,7 +2,9 @@ import tempfile
 import subprocess
 import os
 #from ai_agent_for_q_and_a_app import compiled as compiled_graph
-from ai_agent_for_confirm_checkpoint import compiled_graph
+#from ai_agent_for_confirm_checkpoint import compiled_graph
+from ai_agent_for_reqirement_system import DocumentationAgent
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 def quick_display(compiled_graph, method="imgcat"):
@@ -65,6 +67,13 @@ def fallback_save(png_data):
 
 
 if __name__ == "__main__":
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.0-flash",
+        temperature=0,
+        google_api_key=os.getenv("GOOGLE_API_KEY"),
+    )
+    agent = DocumentationAgent(llm=llm)
+    compiled_graph = agent.graph
     print("📊 グラフ構造を可視化中...")
 
     # 表示方法を選択（環境に応じて変更）

@@ -1,5 +1,4 @@
 import os
-import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 import operator
 from typing import Annotated
