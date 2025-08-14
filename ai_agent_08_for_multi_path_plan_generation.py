@@ -3,17 +3,17 @@ import operator
 from datetime import datetime
 from typing import Annotated, Any
 
-from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_tavily import TavilySearch
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import ConfigurableField
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import create_react_agent
-from ai_agent_4_for_passive_goal_creator import Goal, PassiveGoalCreator
-from ai_agent_5_for_prompt_optimizer import OptimizedGoal, PromptOptimizer
+from ai_agent_04_for_passive_goal_creator import Goal, PassiveGoalCreator
+from ai_agent_05_for_prompt_optimizer import OptimizedGoal, PromptOptimizer
 from pydantic import BaseModel, Field
-from ai_agent_6_for_response_optimizer import ResponseOptimizer
+from ai_agent_06_for_response_optimizer import ResponseOptimizer
 
 
 class TaskOption(BaseModel):
@@ -127,7 +127,7 @@ class OptionPresenter:
 class TaskExecutor:
     def __init__(self, llm: ChatGoogleGenerativeAI):
         self.llm = llm
-        self.tools = [TavilySearchResults(max_results=3)]
+        self.tools = [TavilySearch(max_results=3)]
 
     def run(self, task: Task, chosen_option: TaskOption) -> str:
         agent = create_react_agent(self.llm, self.tools)
@@ -274,8 +274,16 @@ class MultiPathPlanGeneration:
 
     def run(self, query: str) -> str:
         initial_state = MultiPathPlanGenerationState(query=query)
-        final_state = self.graph.invoke(initial_state, {"recursion_limit": 1000})
-        return final_state.get("final_output", "最終的な回答の生成に失敗しました。")
+        while True:
+            try:
+                final_state = self.graph.invoke(initial_state, {"recursion_limit": 1000})
+                return final_state.get("final_output", "最終的な回答の生成に失敗しました。")
+            except Exception as e:
+                if "429" in str(e):
+                    print("\n*** 1分間に使用できる上限に到達しました。1分間待機して処理を続行します。")
+                    time.sleep(60)
+                else:
+                    raise e
 
 
 if __name__ == "__main__":

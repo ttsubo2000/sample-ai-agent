@@ -1,7 +1,7 @@
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
-from ai_agent_4_for_passive_goal_creator import Goal, PassiveGoalCreator
+from ai_agent_04_for_passive_goal_creator import Goal, PassiveGoalCreator
 from pydantic import BaseModel, Field
 
 

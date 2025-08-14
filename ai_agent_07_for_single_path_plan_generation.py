@@ -3,16 +3,16 @@ import operator
 from datetime import datetime
 from typing import Annotated, Any
 
-from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_tavily import TavilySearch
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import create_react_agent
-from ai_agent_4_for_passive_goal_creator import Goal, PassiveGoalCreator
-from ai_agent_5_for_prompt_optimizer import OptimizedGoal, PromptOptimizer
+from ai_agent_04_for_passive_goal_creator import Goal, PassiveGoalCreator
+from ai_agent_05_for_prompt_optimizer import OptimizedGoal, PromptOptimizer
 from pydantic import BaseModel, Field
-from ai_agent_6_for_response_optimizer import ResponseOptimizer
+from ai_agent_06_for_response_optimizer import ResponseOptimizer
 
 
 class DecomposedTasks(BaseModel):
@@ -63,7 +63,7 @@ class QueryDecomposer:
 class TaskExecutor:
     def __init__(self, llm: ChatGoogleGenerativeAI):
         self.llm = llm
-        self.tools = [TavilySearchResults(max_results=3)]
+        self.tools = [TavilySearch(max_results=3)]
 
     def run(self, task: str) -> str:
         agent = create_react_agent(self.llm, self.tools)
