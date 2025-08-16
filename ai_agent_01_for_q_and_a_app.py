@@ -155,4 +155,5 @@ compiled = workflow.compile()
 if __name__ == "__main__":
     initial_state = State(query="生成AIについて教えてください")
     result = compiled.invoke(initial_state)
-    print(markdown_to_text_with_beautifulsoup(result["messages"][-1]))
+#    print(markdown_to_text_with_beautifulsoup(result["messages"][-1]))
+    print(result["messages"][-1])

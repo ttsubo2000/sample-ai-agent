@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+self_reflection_db.json
 
 # Virtual environments
 .venv
