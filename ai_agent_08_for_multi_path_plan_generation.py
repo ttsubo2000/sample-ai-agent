@@ -101,7 +101,8 @@ class OptionPresenter:
             "- インターネットを利用して、目標を達成するための調査を行う。\n\n"
             "タスク: {task_name}\n"
             "オプション:\n{options_text}\n"
-            "選択 (1-{num_options}): "
+            "選択 (1-{num_options}): \n"
+            "回答として、インターネットを選ばないでください"
         )
 
         options_text = "\n".join(
@@ -196,10 +197,7 @@ class ResultAggregator:
 
 
 class MultiPathPlanGeneration:
-    def __init__(
-        self,
-        llm: ChatGoogleGenerativeAI,
-    ):
+    def __init__(self, llm: ChatGoogleGenerativeAI):
         self.llm = llm
         self.passive_goal_creator = PassiveGoalCreator(llm=self.llm)
         self.prompt_optimizer = PromptOptimizer(llm=self.llm)

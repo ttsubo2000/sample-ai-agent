@@ -1,4 +1,4 @@
-% uv run ai_agent_6_for_response_optimizer.py --task カレーライスの作り方
+% uv run ai_agent_06_for_response_optimizer.py --task カレーライスの作り方
 
 ## レスポンス最適化プロンプト
 

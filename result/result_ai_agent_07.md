@@ -1,4 +1,4 @@
-% uv run ai_agent_7_for_single_path_plan_generation.py --task カレーライスの作り方
+% uv run ai_agent_07_for_single_path_plan_generation.py --task カレーライスの作り方
 
 はい、承知いたしました。与えられた情報源（Info 1, Info 3, Info 4）を基に、カレーライスのレシピレポートを作成します。
 

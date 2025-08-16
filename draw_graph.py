@@ -1,9 +1,12 @@
 import tempfile
 import subprocess
 import os
-#from ai_agent_for_q_and_a_app import compiled as compiled_graph
-#from ai_agent_for_confirm_checkpoint import compiled_graph
-from ai_agent_3_for_reqirement_system import DocumentationAgent
+from ai_agent_01_for_q_and_a_app import compiled as compiled_graph
+#from ai_agent_02_for_confirm_checkpoint import compiled_graph
+#from ai_agent_03_for_reqirement_system import DocumentationAgent as Agent
+#from ai_agent_07_for_single_path_plan_generation import SinglePathPlanGeneration as Agent
+#from ai_agent_08_for_multi_path_plan_generation import MultiPathPlanGeneration as Agent
+#from ai_agent_09_for_self_reflection import ReflectiveAgent as Agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 
@@ -72,8 +75,10 @@ if __name__ == "__main__":
         temperature=0,
         google_api_key=os.getenv("GOOGLE_API_KEY"),
     )
-    agent = DocumentationAgent(llm=llm)
-    compiled_graph = agent.graph
+#    agent = Agent(llm, None, None)
+#    agent = Agent(llm)
+
+#    compiled_graph = agent.graph
     print("📊 グラフ構造を可視化中...")
 
     # 表示方法を選択（環境に応じて変更）

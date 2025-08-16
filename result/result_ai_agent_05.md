@@ -1,3 +1,3 @@
-% uv run ai_agent_5_for_prompt_optimizer.py --task カレーライスの作り方
+% uv run ai_agent_05_for_prompt_optimizer.py --task カレーライスの作り方
 
 カレーライスを作るための具体的な手順を説明する。(測定基準: カレーライスのレシピが完成し、そのレシピ通りにカレーライスを作ることができる。)
