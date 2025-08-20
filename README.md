@@ -57,3 +57,13 @@
     $ uv run ai_agent_09_for_self_reflection.py --task カレーライスの作り方
 
 ![scope](graph/graph_ai_agent_09.png)
+
+### 10. クロスリフレクション
+
+... snip
+
+### 11. 役割ベースの協調
+
+    $ uv run ai_agent_11_for_role_based_cooperation.py --task カレーライスの作り方
+
+![scope](graph/graph_ai_agent_11.png)
