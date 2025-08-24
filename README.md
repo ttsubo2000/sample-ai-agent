@@ -67,3 +67,50 @@
     $ uv run ai_agent_11_for_role_based_cooperation.py --task カレーライスの作り方
 
 ![scope](graph/graph_ai_agent_11.png)
+
+
+## MCPサーバと連携させてみる
+
+### 12. シングルサーバ
+
+    $ uv run ai_agent_12_for_stock_data_single_server.py --task "2025年8月18から2025年8月22日までのTOWA(6315.T)の株の日次の終値を取得してください"
+    [08/24/25 17:16:10] INFO     Processing request of type ListToolsRequest                                                                                         server.py:624
+    [08/24/25 17:16:11] INFO     Processing request of type CallToolRequest                                                                                          server.py:624
+    2025年8月18日から2025年8月22日までのTOWA(6315.T)の日次の終値は以下の通りです。
+    2025-08-18: 1718.0
+    2025-08-19: 1751.0
+    2025-08-20: 1660.0
+    2025-08-21: 1641.0
+
+
+### 13. マルチサーバ
+
+    % uv run ai_agent_13_for_stock_data_multi_server.py --task "2025年8月18から2025年8月22日までのTOWA(6315.T)の株の日次の終値を取得し、その値を使  っ てmatplotlibのチャートを作成してください。"
+    [08/24/25 18:21:09] INFO     Processing request of type ListToolsRequest                                                                                         server.py:624
+    [08/24/25 18:21:09] INFO     Processing request of type ListToolsRequest                                                                                         server.py:624
+    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+    I0000 00:00:1756027270.912556  162877 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+    [08/24/25 18:21:11] INFO     Processing request of type CallToolRequest                                                                                          server.py:624
+                        INFO     Processing request of type ListToolsRequest                                                                                         server.py:624
+    I0000 00:00:1756027274.486624  162877 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+    [08/24/25 18:21:14] INFO     Processing request of type CallToolRequest                                                                                          server.py:624
+                        INFO     Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as category.py:224
+                                 numbers, cast to the appropriate data type before plotting.
+                        INFO     Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as category.py:224
+                                 numbers, cast to the appropriate data type before plotting.
+                        INFO     Warning: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown                                                  server.py:614
+                        INFO     Processing request of type ListToolsRequest                                                                                         server.py:624
+    TOWA(6315.T)の2025年8月18日から2025年8月21日までの株価データは以下の通りです。
+
+    日付 | 終値
+    ---|---
+    2025-08-18 | 1718.0
+    2025-08-19 | 1751.0
+    2025-08-20 | 1660.0
+    2025-08-21 | 1641.0
+
+    2025年8月22日のデータがありません。
+
+    上記の株価データを使ってmatplotlibのチャートを作成します。
+
+![scope](graph/Figure_1.png)
