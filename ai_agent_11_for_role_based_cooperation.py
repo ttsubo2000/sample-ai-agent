@@ -226,4 +226,4 @@ if __name__ == "__main__":
     )
     agent = RoleBasedCooperation(llm=llm)
     result = agent.run(query=args.task)
-    print(result)
+    print(result).pretty_print()

@@ -7,7 +7,8 @@ import os
 #from ai_agent_07_for_single_path_plan_generation import SinglePathPlanGeneration as Agent
 #from ai_agent_08_for_multi_path_plan_generation import MultiPathPlanGeneration as Agent
 #from ai_agent_09_for_self_reflection import ReflectiveAgent as Agent
-from ai_agent_11_for_role_based_cooperation import RoleBasedCooperation as Agent
+#from ai_agent_11_for_role_based_cooperation import RoleBasedCooperation as Agent
+from ai_agent_14_for_stock_analysis import StockAgent as Agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 
@@ -77,7 +78,8 @@ if __name__ == "__main__":
         google_api_key=os.getenv("GOOGLE_API_KEY"),
     )
 #    agent = Agent(llm, None, None)
-    agent = Agent(llm)
+    agent = Agent(llm, None)
+#    agent = Agent(llm)
 
     compiled_graph = agent.graph
     print("📊 グラフ構造を可視化中...")

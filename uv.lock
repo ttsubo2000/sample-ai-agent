@@ -1976,10 +1976,12 @@ dependencies = [
     { name = "markdown" },
     { name = "matplotlib" },
     { name = "mcp", extra = ["cli"] },
+    { name = "pandas" },
     { name = "pillow" },
     { name = "pydantic" },
     { name = "pygraphviz" },
     { name = "retry" },
+    { name = "ta" },
     { name = "yfinance" },
 ]
 
@@ -2001,10 +2003,12 @@ requires-dist = [
     { name = "markdown", specifier = ">=3.8.2" },
     { name = "matplotlib", specifier = ">=3.10.5" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.12.4" },
+    { name = "pandas", specifier = ">=2.3.2" },
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "pydantic", specifier = "==2.10.6" },
     { name = "pygraphviz", specifier = ">=1.14" },
     { name = "retry", specifier = ">=0.9.2" },
+    { name = "ta", specifier = ">=0.11.0" },
     { name = "yfinance", specifier = ">=0.2.65" },
 ]
 
@@ -2102,6 +2106,16 @@ sdist = { url = "https://files.pythonhosted.org/packages/04/57/d062573f391d06271
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f7/1f/b876b1f83aef204198a42dc101613fefccb32258e5428b5f9259677864b4/starlette-0.47.2-py3-none-any.whl", hash = "sha256:c5847e96134e5c5371ee9fac6fdf1a67336d5815e09eb2a01fdb57a351ef915b", size = 72984, upload-time = "2025-07-20T17:31:56.738Z" },
 ]
+
+[[package]]
+name = "ta"
+version = "0.11.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pandas" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/9a/37d92a6b470dc9088612c2399a68f1a9ac22872d4e1eff416818e22ab11b/ta-0.11.0.tar.gz", hash = "sha256:de86af43418420bd6b088a2ea9b95483071bf453c522a8441bc2f12bcf8493fd", size = 25308, upload-time = "2023-11-02T13:53:35.434Z" }
 
 [[package]]
 name = "tenacity"

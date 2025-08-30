@@ -114,3 +114,12 @@
     上記の株価データを使ってmatplotlibのチャートを作成します。
 
 ![scope](graph/Figure_1.png)
+
+
+## 銘柄を分析してみる
+
+### 14. tool callingベース
+
+    $ uv run ai_agent_14_for_stock_analysis.py --ticker 6315.T
+
+![scope](graph/graph_ai_agent_14.png)
